@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model HomeViewModel
+
+<div class="text-center d-flex">
+    <div class="col pe-3">
+        <form method="get" class="pb-3 pt-4">
+            <div class="form-group pb-1">
+                <input type="text" asp-for="IdInstance" class="form-control" placeholder="idInstance">
+            </div>
+            <div class="form-group">
+                <input type="text" asp-for="ApiToken" class="form-control" placeholder="ApiTokenInstance">
+            </div>
+            <button type="submit" class="btn btn-light mb-1 pb-2" style="width: 100%;" asp-controller="Home" asp-action="GetSettings">
+                getSettings
+            </button>
+            <button type="submit" class="btn btn-light mb-4 pb-2" style="width: 100%;" asp-controller="Home" asp-action="GetStateInstance">
+                getStateInstance
+            </button>
+
+            <input type="text" class="form-control" placeholder="Enter number" asp-for="Number"/>
+            <textarea type="text" class="form-control-plaintext border" placeholder="Enter message" asp-for="Message"></textarea>
+            <button formmethod="post" type="submit" class="btn btn-light mb-4 pb-2" style="width: 100%;" asp-controller="Home" asp-action="SendMessage">
+                sendMessage</button>
+            <input type="number" class="form-control" placeholder="Enter number" />
+            <input type="text" class="form-control border" placeholder="Enter URL" asp-for="FileUrl"/>
+            <button formmethod="post" type="submit" class="btn btn-light pb-2" style="width: 100%;" asp-controller="Home" asp-action="SendFile">
+                sendFileByUrl</button>
+        </form>
+    </div>
+    <div class="col">
+        <label class="">Ответ</label>
+        <textarea class="form-control" disabled asp-for="Log" style="height: 100%;"></textarea>
+    </div>
+</div>
